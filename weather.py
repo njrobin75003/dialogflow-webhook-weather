@@ -51,9 +51,10 @@ def processRequest(req):
     speech = "Today the weather in " + city + ": \n" + "Temperature in Celsius:\nMax temp :"+temp_max_celsius+".\nMin Temp :"+temp_min_celsius+".\nTemperature in Fahrenheit:\nMax temp :"+temp_max_fahrenheit+".\nMin Temp :"+temp_min_fahrenheit+".\nHumidity :"+humidity+".\nWind Speed :"+wind_speed+"\nLatitude :"+lat+".\n  Longitude :"+lon
     
     return {
-        "speech": speech,
-        "displayText": speech,
-        "source": "dialogflow-weather-by-satheshrgs"
+        #"speech": speech,
+        #"displayText": speech,
+        "fulfillmentText": speech
+        "source": "dialogflow-weather-by-njrobin"
         }
     
 if __name__ == '__main__':
