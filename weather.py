@@ -53,7 +53,7 @@ def processRequest(req):
     return {
         #"speech": speech,
         #"displayText": speech,
-        "fulfillmentText": speech
+        "fulfillmentText": speech,
         "source": "dialogflow-weather-by-njrobin"
         }
     
