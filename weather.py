@@ -74,7 +74,7 @@ def processRequest(req):
               }
             ]
           }
-        }
+        },
         {
           "platform": "ACTIONS_ON_GOOGLE",
           "simpleResponses": {
