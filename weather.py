@@ -62,20 +62,21 @@ def processRequest(req):
         }
     '''
     return {
-        "payload": {
-          "google": {
-            "expectUserResponse" : true,
-            "richResponse": {
-              "items": [
-                {
-                  "simpleResponse": {
-                    "textToSpeech": speech,
-                  }
+      "payload": {
+        "google": {
+          "expectUserResponse": true,
+          "richResponse": {
+            "items": [
+              {
+                "simpleResponse": {
+                  "textToSpeech": "Blablabla...",
+                  #"textToSpeech": speech,
                 }
-              ]
-            }
+              }
+            ]
           }
         }
+      }
     }
     
 if __name__ == '__main__':
