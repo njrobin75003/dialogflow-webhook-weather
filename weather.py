@@ -2,9 +2,9 @@ from flask import Flask,request,make_response
 import os,json
 import pyowm
 import os
-import constants
-import files
-import cnil_open_data_manager as codm
+#import constants
+#import files
+#import cnil_open_data_manager as codm
 
 app = Flask(__name__)
 #owmapikey=os.environ.get('OWMApiKey') #or provide your key here
