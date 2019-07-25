@@ -70,8 +70,8 @@ def processRequest(req):
           "simpleResponses": {
             "simpleResponses": [
               {
-                "textToSpeech": "Blablabla...",
-                #"textToSpeech": speech,
+                #"textToSpeech": "Blablabla...",
+                "textToSpeech": speech,
               }
             ]
           }
