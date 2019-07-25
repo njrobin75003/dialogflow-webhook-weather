@@ -27,6 +27,7 @@ def webhook():
 #processing the request from dialogflow
 def processRequest(req):
     
+    # Get weather info from Open Weather Map.
     result = req.get("queryResult")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
@@ -48,14 +49,34 @@ def processRequest(req):
     fahrenheit_result=w.get_temperature('fahrenheit')
     temp_min_fahrenheit=str(fahrenheit_result.get('temp_min'))
     temp_max_fahrenheit=str(fahrenheit_result.get('temp_max'))
+   
+    # The text that needs to be sent back to DialogFlow.
     speech = "Today the weather in " + city + ": \n" + "Temperature in Celsius:\nMax temp :"+temp_max_celsius+".\nMin Temp :"+temp_min_celsius+".\nTemperature in Fahrenheit:\nMax temp :"+temp_max_fahrenheit+".\nMin Temp :"+temp_min_fahrenheit+".\nHumidity :"+humidity+".\nWind Speed :"+wind_speed+"\nLatitude :"+lat+".\n  Longitude :"+lon
     
+    '''
     return {
         #"speech": speech,
         #"displayText": speech,
         "fulfillmentText": speech,
         "source": "dialogflow-weather-by-njrobin"
         }
+    '''
+    return {
+        "payload": {
+          "google": {
+            "expectUserResponse" : true,
+            "richResponse": {
+              "items": [
+                {
+                  "simpleResponse": {
+                    "textToSpeech": speech,
+                  }
+                }
+              ]
+            }
+          }
+        }
+    }
     
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
