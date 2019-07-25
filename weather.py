@@ -15,7 +15,7 @@ def webhook():
     r = None
     req = request.get_json(silent=True, force=True)
 
-    if (req["queryResult"]["intent"]["displayName"] = "9999-GetWeather") :
+    if (req["queryResult"]["intent"]["displayName"] == "9999-GetWeather") :
        print("Request:")
        print(json.dumps(req, indent=4))
     
