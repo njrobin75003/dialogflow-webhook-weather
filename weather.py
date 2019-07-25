@@ -3,7 +3,7 @@ import os,json
 import pyowm
 import os
 import constants
-#import files
+import files
 #import cnil_open_data_manager as codm
 
 app = Flask(__name__)
