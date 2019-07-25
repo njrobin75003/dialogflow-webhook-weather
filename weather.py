@@ -4,7 +4,7 @@ import pyowm
 import os
 import constants
 import files
-import 
+import cnil_open_data_manager as codm
 
 app = Flask(__name__)
 #owmapikey=os.environ.get('OWMApiKey') #or provide your key here
@@ -114,7 +114,7 @@ def processDataTransferRequest(req):
     transfert_location_country = req["queryResult"]["parameters"]["transfer-location-country"]["name"]
 
     eu_countries_reader = files.get_eu_countries_reader()
-    message = data_transfert_rule(eu_countries_reader, resident_location_country, transfert_location_country)
+    message = codm.data_transfert_rule(eu_countries_reader, resident_location_country, transfert_location_country)
 
     # The text that needs to be sent back to DialogFlow.
     speech = message
