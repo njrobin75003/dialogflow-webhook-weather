@@ -64,7 +64,7 @@ def processRequest(req):
         
     '''
     return {
-      "fullfillmentMessages": [
+      "fulfillmentMessages": [
         {
           "platform": "ACTIONS_ON_GOOGLE",
           "simpleResponses": {
