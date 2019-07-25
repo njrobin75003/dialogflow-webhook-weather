@@ -137,16 +137,6 @@ def processDataTransferRequest(req):
               }
             ]
           }
-        },
-        {
-          "platform": "ACTIONS_ON_GOOGLE",
-          "simpleResponses": {
-            "simpleResponses": [
-              {
-                "textToSpeech": "Sympa les webhooks, n'est-ce pas !?! ^^",
-              }
-            ]
-          }
         }
       ]
     }
