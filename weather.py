@@ -11,17 +11,21 @@ owm = pyowm.OWM(owmapikey)
 #getting and sending response to dialogflow
 @app.route('/webhook', methods=['POST'])
 def webhook():
+    
+    r = None
     req = request.get_json(silent=True, force=True)
 
-    print("Request:")
-    print(json.dumps(req, indent=4))
+    if (req["queryResult"]["intent"]["displayName"] = "9999-GetWeather") :
+       print("Request:")
+       print(json.dumps(req, indent=4))
     
-    res = processRequest(req)
-    res = json.dumps(res, indent=4)
-    print(res)
+       res = processRequest(req)
+       res = json.dumps(res, indent=4)
+       print(res)
     
-    r = make_response(res)
-    r.headers['Content-Type'] = 'application/json'
+       r = make_response(res)
+       r.headers['Content-Type'] = 'application/json'
+    
     return r
 
 #processing the request from dialogflow
