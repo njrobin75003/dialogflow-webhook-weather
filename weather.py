@@ -108,6 +108,7 @@ def processWeatherRequest(req):
 
 def processDataTransferRequest(req):
     
+    '''
     req = request.get_json(silent=True, force=True)
     
     resident_location_country = req["queryResult"]["parameters"]["resident-location-country"]["name"]
@@ -115,9 +116,11 @@ def processDataTransferRequest(req):
 
     eu_countries_reader = files.get_eu_countries_reader()
     message = codm.data_transfert_rule(eu_countries_reader, resident_location_country, transfert_location_country)
-
+    '''
+    
     # The text that needs to be sent back to DialogFlow.
-    speech = message
+    #speech = message
+    speech = "processDataTransferRequest Test"
     
     '''
     return {
