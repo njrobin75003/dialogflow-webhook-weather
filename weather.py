@@ -8,7 +8,7 @@ app = Flask(__name__)
 owmapikey="03392529d8ee503bed9526caa9cf428b"
 owm = pyowm.OWM(owmapikey)
 
-#geting and sending response to dialogflow
+#getting and sending response to dialogflow
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
@@ -17,9 +17,9 @@ def webhook():
     print(json.dumps(req, indent=4))
     
     res = processRequest(req)
-
     res = json.dumps(res, indent=4)
     print(res)
+    
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
     return r
@@ -53,13 +53,13 @@ def processRequest(req):
     # The text that needs to be sent back to DialogFlow.
     speech = "Today the weather in " + city + ": \n" + "Temperature in Celsius:\nMax temp :"+temp_max_celsius+".\nMin Temp :"+temp_min_celsius+".\nTemperature in Fahrenheit:\nMax temp :"+temp_max_fahrenheit+".\nMin Temp :"+temp_min_fahrenheit+".\nHumidity :"+humidity+".\nWind Speed :"+wind_speed+"\nLatitude :"+lat+".\n  Longitude :"+lon
     
-    '''
     return {
         #"speech": speech,
         #"displayText": speech,
         "fulfillmentText": speech,
         "source": "dialogflow-weather-by-njrobin"
         }
+        
     '''
     return {
       "payload": {
@@ -78,6 +78,7 @@ def processRequest(req):
         }
       }
     }
+    '''
     
 if __name__ == '__main__':
     port = int(os.getenv('PORT', 5000))
