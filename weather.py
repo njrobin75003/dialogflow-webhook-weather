@@ -16,16 +16,18 @@ owm = pyowm.OWM(owmapikey)
 def webhook():
     req = request.get_json(silent=True, force=True)
     
-    result = req.get("queryResult")
-    intent = result.get("intent")
-    displayName = intent.get("displayName")
+    #result = req.get("queryResult")
+    #intent = result.get("intent")
+    #displayName = intent.get("displayName")
     
     print("Request:")
     print(json.dumps(req, indent=4))
         
     #if (req["queryResult"]["intent"]["displayName"] == "9999-GetWeather") :
-    if (displayName == "9999-GetWeather") :
-        res = processWeatherRequest(req)
+    #if (displayName == "9999-GetWeather") :
+        #res = processWeatherRequest(req)
+    
+    res = processWeatherRequest(req)
     
     #if (req["queryResult"]["intent"]["displayName"] == "2-DataTransfer") :
     if (displayName == "2-DataTransfer") :
