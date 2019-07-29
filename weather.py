@@ -17,8 +17,13 @@ def webhook():
     
     r = None
     req = request.get_json(silent=True, force=True)
+    
+    result = req.get("queryResult")
+    intent = result.get("intent")
+    displayName = intent.get("displayName")
 
-    if (req["queryResult"]["intent"]["displayName"] == "9999-GetWeather") :
+    #if (req["queryResult"]["intent"]["displayName"] == "9999-GetWeather") :
+    if (displayName == "9999-GetWeather") :
         print("Request:")
         print(json.dumps(req, indent=4))
     
@@ -29,7 +34,8 @@ def webhook():
         r = make_response(res)
         r.headers['Content-Type'] = 'application/json'
     
-    if (req["queryResult"]["intent"]["displayName"] == "2-DataTransfer") :
+    #if (req["queryResult"]["intent"]["displayName"] == "2-DataTransfer") :
+    if (displayName == "2-DataTransfer") :
         print("Request:")
         print(json.dumps(req, indent=4))
     
@@ -121,10 +127,6 @@ def processDataTransferRequest(req):
     
     #eu_countries_reader = files.get_eu_countries_reader()
     #message = codm.data_transfert_rule(eu_countries_reader, resident_location_country, transfert_location_country)
-    
-    #file = open(“logfile.txt”,”a+”) 
-    #file.write(“processDataTransferRequest called”) 
-    #file.close() 
     
     # The text that needs to be sent back to DialogFlow.
     #speech = message
