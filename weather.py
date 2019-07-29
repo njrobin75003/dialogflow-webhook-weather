@@ -112,15 +112,19 @@ def processDataTransferRequest(req):
     
     #resident_location_country = req["queryResult"]["parameters"]["resident-location-country"]["name"]
     #transfert_location_country = req["queryResult"]["parameters"]["transfer-location-country"]["name"]
-
-    '''
-    eu_countries_reader = files.get_eu_countries_reader()
-    message = codm.data_transfert_rule(eu_countries_reader, resident_location_country, transfert_location_country)
-    '''
+    result = req.get("queryResult")
+    parameters = result.get("parameters")
+    resident_location_country = parameters.get("resident-location-country")
+    resident_location_country_name = resident_location_country.get("name")
+    transfer-location-country = parameters.get("transfer-location-country")
+    transfer-location-country_name = resident_location_country.get("name")
     
-    file = open(“logfile.txt”,”a+”) 
-    file.write(“processDataTransferRequest called”) 
-    file.close() 
+    #eu_countries_reader = files.get_eu_countries_reader()
+    #message = codm.data_transfert_rule(eu_countries_reader, resident_location_country, transfert_location_country)
+    
+    #file = open(“logfile.txt”,”a+”) 
+    #file.write(“processDataTransferRequest called”) 
+    #file.close() 
     
     # The text that needs to be sent back to DialogFlow.
     #speech = message
@@ -129,7 +133,7 @@ def processDataTransferRequest(req):
     '''
     return {
         "fulfillmentText": speech,
-        "source": "dialogflow-weather-by-njrobin"
+        "source": "dialogflow-data-transfert-by-njrobin"
         }
         
     '''
