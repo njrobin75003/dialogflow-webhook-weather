@@ -69,16 +69,13 @@ def processWeatherRequest(req):
     # The text that needs to be sent back to DialogFlow.
     speech = "Today the weather in <strong><u>" + city + "</u></strong>:\n" + "Temperature in Celsius:\nMax temp :"+temp_max_celsius+".\nMin Temp :"+temp_min_celsius+".\nTemperature in Fahrenheit:\nMax temp :"+temp_max_fahrenheit+".\nMin Temp :"+temp_min_fahrenheit+".\nHumidity :"+humidity+".\nWind Speed :"+wind_speed+"\nLatitude :"+lat+".\n  Longitude :"+lon
     
-    '''
-    return {
-        #"speech": speech,
-        #"displayText": speech,
-        #"fulfillmentText": speech,
-        "fulfillmentText": speech,
-        "source": "dialogflow-weather-by-njrobin"
-        }
+    #return {
+    #    #"speech": speech,
+    #    #"displayText": speech,
+    #    "fulfillmentText": speech,
+    #    "source": "dialogflow-weather-by-njrobin"
+    #   }
         
-    '''
     return {
       "fulfillmentMessages": [
         {
@@ -124,13 +121,11 @@ def processDataTransferRequest(req):
     #speech = message
     speech = "processDataTransferRequest Test"
     
-    '''
-    return {
-        "fulfillmentText": speech,
-        "source": "dialogflow-data-transfert-by-njrobin"
-        }
+    #return {
+    #    "fulfillmentText": speech,
+    #    "source": "dialogflow-data-transfert-by-njrobin"
+    #    }
         
-    '''
     return {
       "fulfillmentMessages": [
         {
