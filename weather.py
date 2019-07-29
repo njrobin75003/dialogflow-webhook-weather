@@ -15,7 +15,7 @@ owm = pyowm.OWM(owmapikey)
 @app.route('/webhook', methods=['POST'])
 def webhook():
     
-    r = None
+    #r = None
     req = request.get_json(silent=True, force=True)
     
     result = req.get("queryResult")
@@ -114,7 +114,7 @@ def processWeatherRequest(req):
 
 def processDataTransferRequest(req):
     
-    req = request.get_json(silent=True, force=True)
+    #req = request.get_json(silent=True, force=True)
     
     #resident_location_country = req["queryResult"]["parameters"]["resident-location-country"]["name"]
     #transfert_location_country = req["queryResult"]["parameters"]["transfer-location-country"]["name"]
