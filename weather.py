@@ -118,6 +118,10 @@ def processDataTransferRequest(req):
     message = codm.data_transfert_rule(eu_countries_reader, resident_location_country, transfert_location_country)
     '''
     
+    file = open(“logfile.txt”,”a+”) 
+    file.write(“processDataTransferRequest called”) 
+    file.close() 
+    
     # The text that needs to be sent back to DialogFlow.
     #speech = message
     speech = "processDataTransferRequest Test"
