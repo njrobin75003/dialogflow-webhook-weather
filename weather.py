@@ -30,8 +30,8 @@ def webhook():
     res = processWeatherRequest(req)
     
     #if (req["queryResult"]["intent"]["displayName"] == "2-DataTransfer") :
-    if (displayName == "2-DataTransfer") :
-        res = processDataTransferRequest(req)
+    #if (displayName == "2-DataTransfer") :
+    #    res = processDataTransferRequest(req)
         
     res = json.dumps(res, indent=4)
     print(res)
@@ -69,37 +69,37 @@ def processWeatherRequest(req):
     # The text that needs to be sent back to DialogFlow.
     speech = "Today the weather in <strong><u>" + city + "</u></strong>:\n" + "Temperature in Celsius:\nMax temp :"+temp_max_celsius+".\nMin Temp :"+temp_min_celsius+".\nTemperature in Fahrenheit:\nMax temp :"+temp_max_fahrenheit+".\nMin Temp :"+temp_min_fahrenheit+".\nHumidity :"+humidity+".\nWind Speed :"+wind_speed+"\nLatitude :"+lat+".\n  Longitude :"+lon
     
-    #return {
-    #    #"speech": speech,
-    #    #"displayText": speech,
-    #    "fulfillmentText": speech,
-    #    "source": "dialogflow-weather-by-njrobin"
-    #   }
-        
     return {
-      "fulfillmentMessages": [
-        {
-          "platform": "ACTIONS_ON_GOOGLE",
-          "simpleResponses": {
-            "simpleResponses": [
-              {
-                "textToSpeech": speech,
-              }
-            ]
-          }
-        },
-        {
-          "platform": "ACTIONS_ON_GOOGLE",
-          "simpleResponses": {
-            "simpleResponses": [
-              {
-                "textToSpeech": "Sympa les webhooks, n'est-ce pas !?! ^^",
-              }
-            ]
-          }
-        }
-      ]
-    }
+        #"speech": speech,
+        #"displayText": speech,
+        "fulfillmentText": speech,
+        "source": "dialogflow-weather-by-njrobin"
+       }
+        
+    #return {
+    #  "fulfillmentMessages": [
+    #    {
+    #      "platform": "ACTIONS_ON_GOOGLE",
+    #      "simpleResponses": {
+    #        "simpleResponses": [
+    #          {
+    #            "textToSpeech": speech,
+    #          }
+    #        ]
+    #      }
+    #    },
+    #    {
+    #      "platform": "ACTIONS_ON_GOOGLE",
+    #      "simpleResponses": {
+    #        "simpleResponses": [
+    #          {
+    #            "textToSpeech": "Sympa les webhooks, n'est-ce pas !?! ^^",
+    #          }
+    #        ]
+    #      }
+    #    }
+    #  ]
+    #}
 
 def processDataTransferRequest(req):
     
