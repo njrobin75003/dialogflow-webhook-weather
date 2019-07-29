@@ -108,12 +108,12 @@ def processWeatherRequest(req):
 
 def processDataTransferRequest(req):
     
-    '''
     req = request.get_json(silent=True, force=True)
     
     resident_location_country = req["queryResult"]["parameters"]["resident-location-country"]["name"]
     transfert_location_country = req["queryResult"]["parameters"]["transfer-location-country"]["name"]
 
+    '''
     eu_countries_reader = files.get_eu_countries_reader()
     message = codm.data_transfert_rule(eu_countries_reader, resident_location_country, transfert_location_country)
     '''
