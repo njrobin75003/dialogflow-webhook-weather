@@ -110,8 +110,8 @@ def processDataTransferRequest(req):
     
     req = request.get_json(silent=True, force=True)
     
-    resident_location_country = req["queryResult"]["parameters"]["resident-location-country"]["name"]
-    transfert_location_country = req["queryResult"]["parameters"]["transfer-location-country"]["name"]
+    #resident_location_country = req["queryResult"]["parameters"]["resident-location-country"]["name"]
+    #transfert_location_country = req["queryResult"]["parameters"]["transfer-location-country"]["name"]
 
     '''
     eu_countries_reader = files.get_eu_countries_reader()
